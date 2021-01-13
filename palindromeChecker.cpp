@@ -1,13 +1,13 @@
 #include <iostream>
-#include<bits/stdc++.h>
 using namespace std;
 //repl.it repo:https://repl.it/join/vchnaxnm-emilybuck
 //The Problem: converting to lowercase and reversing the input then comparing it to itself
 //General approach: I will make two functions, one to reverse and one to lowercase
-//Main issues: Making sure that I take a copy of the word before reversing it
+//Main issues: Making sure to lowercase the word before converting it
 
-bool pallindrome(string word);
+bool pallindrome(string inputWord);
 string lowerCase(string word);
+string reverseWord(string word);
 
 int main() {
   string word; 
@@ -26,10 +26,8 @@ int main() {
 bool pallindrome(string inputWord) {
   inputWord = lowerCase(inputWord);
   //Convert to lowercase
-  string backwardsWord = inputWord;
-  //Take a copy of the input word to be reversed
-  reverse(backwardsWord.begin(),backwardsWord.end());
-  //Reverse word
+  string backwardsWord = reverseWord(inputWord);
+  //Reverse word and store to different var 
 
   if (backwardsWord!=inputWord)
     return false;
@@ -46,3 +44,18 @@ string lowerCase(string input) {
   return input;
 }
 
+string reverseWord( string word ) {
+
+  string reversedWord = word;
+  //Take a copy of the word in order to save the original from being converted 
+
+  int wordLength = word.length(); 
+  //find out wordLength to use in for loop
+
+  // Swap character starting from two 
+  // corners 
+  for (int i = 0; i < wordLength / 2; i++) 
+      swap(reversedWord[i], reversedWord[wordLength - i - 1]); 
+
+  return reversedWord;
+}
