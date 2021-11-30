@@ -1,4 +1,4 @@
-# Advanced-Programming-Tuesday
+# C Personal Project
 
 ## reversedWord
 The code conforms to the spec and has been tested to work
